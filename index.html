@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+</head>
+<body>
+	<style>
+
+	.test {
+		padding:30px;
+		background:tomato;
+		font-family: sans-serif;
+		text-align: center;
+		color: white;
+		}</style>
+	<h1 class="test">
+
+		</h1>
+
+
+
+	<script src="js/jquery.min.js"></script>	
+
+	<script>
+		jQuery(document).ready(function($) {
+			jQuery.ajax({
+				url: 'http://www.richmiles.co.za/wp-json/posts/19',
+				type: 'GET'
+			})
+			.done(function(data) {
+				var test = data.content;
+				console.log(test);
+				jQuery('.test').append(test);
+
+			})
+			.fail(function() {
+				console.log("error");
+			})
+			.always(function() {
+				console.log("complete");
+			});
+
+		});
+	</script>
+</body>
+</html>
