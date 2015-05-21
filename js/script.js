@@ -3,6 +3,7 @@ angular.module("helloworld", ['ngSanitize']).controller("HelloController", funct
 	$scope.cont = "";
 	$scope.toggle = function(link) {
 		$scope.cont = link;
+		$scope.load_pages();
 	}
 	$scope.load_pages = function(link) {
 		$scope.pages = [];
@@ -11,6 +12,7 @@ angular.module("helloworld", ['ngSanitize']).controller("HelloController", funct
 
 				$scope.pages.push(data[i]);
 			}	
+
 		});
 	};
 });
