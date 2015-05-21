@@ -12,7 +12,8 @@
 	}
 </style>
 <body ng-app="helloworld">
-	<div class="app" ng-controller="HelloController">
+
+	<div class="app" ng-controller="HelloController" ng-init="load_pages()">
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<!-- Brand and toggle get grouped for better mobile display -->
@@ -35,7 +36,7 @@
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		<div ng-bind-html="cont"></div>
+		<div ng-bind-html="cont">{{cont}}</div>
 	</div>
 	<script src="js/angular.min.js"></script>	
 	<script src="js/angular-sanitize.min.js"></script>	
