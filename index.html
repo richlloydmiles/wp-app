@@ -6,42 +6,34 @@
 </head>
 <link rel="stylesheet" href="css/bootstrap.css">
 <link rel="stylesheet" href="css/bootstrap-theme.css">
-<style>
-	a {
-		cursor: pointer;
-	}
-</style>
+<link rel="stylesheet" href="css/jquery-mobile.min.css">
 <body ng-app="helloworld">
 
 	<div class="app" ng-controller="HelloController" ng-init="load_pages()">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="#">Brand</a>
-				</div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li ng-repeat="page in pages">
-							<a ng-click="toggle(page.content)"  >{{ page.title }}</a>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-		<div ng-bind-html="cont">{{cont}}</div>
+
+		<div class="ui-btn ui-input-btn ui-corner-all ui-shadow" ng-repeat="page in pages" ng-click="toggle(page.content)">
+			{{ page.title }}
+		</div>
+
+		<div style="padding:30px;font-size:16px;" ng-bind-html="cont">{{cont}}</div>
 	</div>
-	<script src="js/angular.min.js"></script>	
-	<script src="js/angular-sanitize.min.js"></script>	
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>	
-	<script src="js/script.js"></script>
-</body>
-</html>
+	<script>
+		var map;
+		function initialize() {
+			var mapOptions = {
+				zoom: 8,
+				center: new google.maps.LatLng(-34.397, 150.644)
+			};
+			map = new google.maps.Map(document.getElementById('map-canvas'),
+				mapOptions);
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);</script>
+		<script src="js/angular.min.js"></script>	
+		<script src="js/angular-sanitize.min.js"></script>	
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-mobile.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>	
+		<script src="js/script.js"></script>
+	</body>
+	</html>
